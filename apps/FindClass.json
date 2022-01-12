@@ -59,7 +59,11 @@
     "target_url": "https://dev-shiksha.uniteframework.io/registry/api/v1/",
     "strip_listen_path": false
   },
-  
-
+  "response_processors": [
+    {
+      "name": "response_body_transform",
+      "options": {}
+    }
+  ],
   "active": true
 }

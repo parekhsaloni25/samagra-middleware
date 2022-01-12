@@ -60,7 +60,12 @@
       "strip_listen_path": false
     },
     
- 
+    "response_processors": [
+      {
+        "name": "response_body_transform",
+        "options": {}
+      }
+    ],
     "active": true
   }
   
