@@ -1,0 +1,66 @@
+{
+    "name": "Teacher",
+    "slug": "teacher-api",
+    "api_id": "Teacher",
+    "org_id": "1",
+    "use_keyless":true,
+    "auth_configs": {
+      "authToken": {
+        "auth_header_name": "Authorization"
+      }
+    },
+    "definition": {
+      "location": "header",
+      "key": "x-api-version",
+      "response_processors": [
+        {
+          "name": "response_body_transform",
+          "options": {}
+        }
+      ] 
+    },
+    "version_data": {
+      "not_versioned": true,
+      "versions": {
+        "Default": {
+          "name": "Default",
+          "use_extended_paths": true,
+          "extended_paths": {
+            "ignored": [],
+            "white_list": [],
+            "black_list": [],
+            "cache": ["get"],
+            "transform": [],
+            "transform_response": [
+              {
+                "path": "teacher/{id}",
+                "method": "GET",
+                "template_data": {
+                    "template_mode": "blob",
+                    "template_source": "ewogICJ0ZWFjaGVySWQiOiAie3sub3NpZH19IiwKICAicmVmdGVhY2hlcklkIjogInt7LnRlYWNoZXJSZWZJZH19IiwKICAiZmlyc3ROYW1lIjogInt7LnRlYWNoZXJGaXJzdE5hbWV9fSIsCiAgImxhc3ROYW1lIjogInt7LnRlYWNoZXJMYXN0TmFtZX19IiwKICAiZW1haWwiOiAie3suZW1haWx9fSIsCiAgInByb2ZRdWFsaWZpY2F0aW9uIjoie3suaGlnaGVzdFF1YWxpZmljYXRpb259fSIKfQ==",
+                    "input_type": "json"
+                }
+              }
+            ],
+            "url_rewrites": [{
+              "path": "teacher/",
+              "method": "GET",
+              "match_pattern": "/teacher/(.*)",
+              "rewrite_to": "Teacher/$1"
+            }],
+            "transform_headers": []
+          }
+      }
+     }  
+    },
+    "proxy": {
+      "preserve_host_header": false,
+      "listen_path": "/teacher/{id}",
+      "target_url": "https://dev-shiksha.uniteframework.io/registry/api/v1/",
+      "strip_listen_path": false
+    },
+    
+ 
+    "active": true
+  }
+  

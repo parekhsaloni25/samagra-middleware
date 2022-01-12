@@ -1,0 +1,66 @@
+{
+    "name": "Student",
+    "slug": "student-api",
+    "api_id": "Student",
+    "org_id": "1",
+    "use_keyless":true,
+    "auth_configs": {
+      "authToken": {
+        "auth_header_name": "Authorization"
+      }
+    },
+    "definition": {
+      "location": "header",
+      "key": "x-api-version",
+      "response_processors": [
+        {
+          "name": "response_body_transform",
+          "options": {}
+        }
+      ] 
+    },
+    "version_data": {
+      "not_versioned": true,
+      "versions": {
+        "Default": {
+          "name": "Default",
+          "use_extended_paths": true,
+          "extended_paths": {
+            "ignored": [],
+            "white_list": [],
+            "black_list": [],
+            "cache": ["get"],
+            "transform": [],
+            "transform_response": [
+              {
+                "path": "student/{id}",
+                "method": "GET",
+                "template_data": {
+                    "template_mode": "blob",
+                    "template_source": "ewogICJzdHVkZW50SWQiOiAie3sub3NpZH19IiwKICAiZmlyc3ROYW1lIjogInt7LnN0dWRlbnRGaXJzdE5hbWV9fSIsCiAgImxhc3ROYW1lIjogInt7LnN0dWRlbnRMYXN0TmFtZX19IiwKICAicmVmU3R1ZGVudElkIjogInt7LnN0dWRlbnRSZWZJZH19IiwKICAiZW1haWwiOiAie3suZW1haWx9fSIKfQ==",
+                    "input_type": "json"
+                }
+              }
+            ],
+            "url_rewrites": [{
+              "path": "student/",
+              "method": "GET",
+              "match_pattern": "/student/(.*)",
+              "rewrite_to": "Student/6764bd8f-a082-435a-be47-4b871baf42df"
+            }],
+            "transform_headers": []
+          }
+      }
+     }  
+    },
+    "proxy": {
+      "preserve_host_header": false,
+      "listen_path": "/student/{id}",
+      "target_url": "https://dev-shiksha.uniteframework.io/registry/api/v1/",
+      "strip_listen_path": false
+    },
+    
+ 
+    "active": true
+  }
+  

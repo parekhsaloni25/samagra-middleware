@@ -1,0 +1,16 @@
+{
+  "classId": "{{.osid}}",
+  "name": "{{.className}}",
+  "section": "{{.section}}",
+  "schoolId":"{{.schoolID}}",
+  "gradeLevel":"{{.gradeLevel}}",
+  "teacherId": [
+    {{range $index, $element := .teacher}}
+        {{if $index}}
+        , "{{$element.teacherID}}"
+        {{else}}
+          "{{$element.teacherID}}"
+        {{end}}
+    {{end}}
+  ]
+}
